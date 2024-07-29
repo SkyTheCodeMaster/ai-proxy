@@ -1,12 +1,15 @@
 devmode = false
 
-[postgresql]
-  enabled = false
-  url = "postgresql://user@ip:port/db_name"
-  password = "secure_password"
-
 [log]
   file = ""
+
+[proxy]
+  whisper = "http://127.0.0.1:9090/"
+  chat = "http://127.0.0.1:9190/"
+  emotion = "http://127.0.0.1:9290/"
+  diffusion = "http://127.0.0.1:9390/"
+  #spleeter = "http://127.0.0.1:9490/"
+  # threed = "http://127.0.0.1:9590/"
 
 [srv]
   host = "0.0.0.0"

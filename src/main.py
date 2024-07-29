@@ -7,7 +7,6 @@ import os
 import tomllib
 
 import aiohttp
-import asyncpg
 import coloredlogs
 import uvloop
 from aiohttp import web
@@ -59,18 +58,6 @@ api_app = web.Application(
 
 async def startup():
   try:
-    app.POSTGRES_ENABLED = config["postgresql"]["enabled"]
-    api_app.POSTGRES_ENABLED = config["postgresql"]["enabled"]
-
-    if config["postgresql"]["enabled"]:
-      pool = await asyncpg.create_pool(
-        config["postgresql"]["url"],
-        password=config["postgresql"]["password"]
-      )
-
-      app.pool = pool
-      api_app.pool = pool
-
     session = aiohttp.ClientSession()
     app.cs = session
     api_app.cs = session

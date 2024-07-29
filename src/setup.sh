@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Service file details
-DESCRIPTION="Webserver running Stable Diffusion"
-SERVICE_NAME="diffusionai"
+DESCRIPTION="Proxy service for the AIs"
+SERVICE_NAME="aiproxy"
 
 # Python interpreter
 PYTHON="python3.11"
