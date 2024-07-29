@@ -43,7 +43,7 @@ async def post_whisper_file(request: Request) -> Response:
   url = URL(config["proxy"]["whisper"]).with_path("/api/whisper/transcribe/file/")
   async with request.session.post(url, data=body, headers=request.headers, params=request.query) as resp:
     return Response(
-      status=resp.status, content_type=resp.content_type, body=resp.read()
+      status=resp.status, content_type=resp.content_type, body=await resp.read()
     )
 
 @routes.post("/whisper/raw/")
@@ -70,7 +70,7 @@ async def post_whisper_raw(request: Request) -> Response:
   url = URL(config["proxy"]["whisper"]).with_path("/api/whisper/transcribe/raw/")
   async with request.session.post(url, data=body, headers=request.headers, params=request.query) as resp:
     return Response(
-      status=resp.status, content_type=resp.content_type, body=resp.read()
+      status=resp.status, content_type=resp.content_type, body=await resp.read()
     )
 
 @routes.post("/chat/")
@@ -97,7 +97,7 @@ async def post_chat(request: Request) -> Response:
   url = URL(config["proxy"]["chat"]).with_path("/api/chat/")
   async with request.session.post(url, data=body, headers=request.headers, params=request.query) as resp:
     return Response(
-      status=resp.status, content_type=resp.content_type, body=resp.read()
+      status=resp.status, content_type=resp.content_type, body=await resp.read()
     )
 
 @routes.post("/emotion/")
@@ -124,7 +124,7 @@ async def post_emotion(request: Request) -> Response:
   url = URL(config["proxy"]["emotion"]).with_path("/api/emotion/")
   async with request.session.post(url, data=body, headers=request.headers, params=request.query) as resp:
     return Response(
-      status=resp.status, content_type=resp.content_type, body=resp.read()
+      status=resp.status, content_type=resp.content_type, body=await resp.read()
     )
 
 @routes.post("/diffusion/")
@@ -151,7 +151,7 @@ async def post_diffusion(request: Request) -> Response:
   url = URL(config["proxy"]["diffusion"]).with_path("/api/diffusion/")
   async with request.session.post(url, data=body, headers=request.headers, params=request.query) as resp:
     return Response(
-      status=resp.status, content_type=resp.content_type, body=resp.read()
+      status=resp.status, content_type=resp.content_type, body=await resp.read()
     )
 
 
