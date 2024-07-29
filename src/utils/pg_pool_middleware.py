@@ -8,7 +8,6 @@ from aiohttp.web import middleware
 
 if TYPE_CHECKING:
   from aiohttp.web import Request
-  from asyncpg import Connection
 
 
 @middleware
